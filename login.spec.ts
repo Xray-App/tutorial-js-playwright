@@ -16,6 +16,6 @@ describe("Login validations", () => {
         await loginPage.navigate();
         await loginPage.login("demo","mode1");
         const name = await loginPage.getInnerText();
-        expect(name).toBe('Login failed. Invalid user name and password.');
+        expect(name).toBe('Login failed. Invalid user name and/or password.');
     });
 }) 
