@@ -1,0 +1,23 @@
+{
+    "fields": {
+        "project": {
+            "id": "10000"
+        },
+        "summary": "Login validation [Webkit]",
+        "issuetype": {
+            "id": "10011"
+        },
+        "components" : [
+            {
+            "name":"Interface"
+            },
+            {
+            "name":"Login"
+            }
+        ]
+    },
+    "xrayFields": {
+        "testPlanKey": "AM-23",
+        "environments": ["Webkit"]
+    }
+}
