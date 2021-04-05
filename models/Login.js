@@ -1,18 +1,20 @@
+const config = require ("../config.json");
+
 // models/Login.js
 class LoginPage {
+
     constructor(page) {
       this.page = page;
     }
-    
+
     async navigate() {
-      await this.page.goto('https://robotwebdemo.herokuapp.com/');
+      await this.page.goto(config.endpoint);
     }
     
     async login(username, password) {
-        await this.page.click('id=username_field');
-        await this.page.fill('input[id="username_field"]', username);
-        await this.page.fill('input[id="password_field"]', password);
-        await this.page.click('id=login_button');
+        await this.page.fill(config.username_field, username);
+        await this.page.fill(config.password_field, password);
+        await this.page.click(config.login_button);
     }
 
     async getInnerText(){
