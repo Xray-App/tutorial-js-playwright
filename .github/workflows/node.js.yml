@@ -26,4 +26,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm i -D @playwright/test 
-    - run: npx folio -p browserName=chromium --reporter=junit,line --test-match=login.spec.ts
+    - run: |
+        export FOLIO_JUNIT_OUTPUT_NAME=junit.xml
+        npx folio -p browserName=chromium --reporter=junit,line --test-match=login.spec.ts
+    - name: "Import results to Xray"
+      uses: mikepenz/xray-action@v1.1.0
+      with:
+         username: ${{ secrets.JIRA_USERNAME }}
+         password: ${{ secrets.JIRA_PASSWORD }}
+         xrayCloud: "false"
+         xrayBaseUrl: ${{ secrets.JIRA_BASEURL }}
+         testFormat: "junit"
+         testPaths: "**/junit.xml"
+         testPlanKey: "${{ secrets.TESTPLAN_KEY }}"
+         projectKey: "${{ secrets.PROJECT_KEY }}"
