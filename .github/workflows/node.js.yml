@@ -40,3 +40,4 @@ jobs:
          testPaths: "**/junit.xml"
          testPlanKey: "${{ secrets.TESTPLAN_KEY }}"
          projectKey: "${{ secrets.PROJECT_KEY }}"
+         testEnvironments: "NODE_${{ matrix.node-version }}"
