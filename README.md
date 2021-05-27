@@ -18,6 +18,7 @@ npm i -D @playwright/test
 ## Running
 Tests can be executed locally with the following command
 ```
+export FOLIO_JUNIT_OUTPUT_NAME=junit.xml
 npx folio -p browserName=chromium --reporter=junit,line --test-match=login.spec.ts
 ```
 
