@@ -26,8 +26,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
-        npx playwright install
-        npm i -D @playwright/test 
+        npx playwright install --legacy-peer-deps
+        npm i -D @playwright/test --legacy-peer-deps
     - run: |
         PLAYWRIGHT_JUNIT_OUTPUT_NAME=junit.xml npx playwright test --reporter=junit,line
     - name: "Import results to Xray"
