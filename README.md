@@ -7,18 +7,19 @@
 ## Overview
 Code that support the tutorial [Testing web applications using Playwright](https://docs.getxray.app/display/XRAYCLOUD/Testing+web+applications+using+Playwright) showcasing the integratoin between [Xray Test Management](https://www.getxray.app/) on Jira and NUnit.
 
-The test automation code implements a basic [Playwright test](https://github.com/microsoft/playwright-test)
+The test automation code implements a basic [Playwright test](https://playwright.dev/docs/test-intro/)
 
 ## Prerequisites
 In order to run this tutorial you need to have Nodejs and install the playwrighttest runner.
 ```
+npx playwright install
 npm i -D @playwright/test
 ```
 
 ## Running
 Tests can be executed locally with the following command
 ```
-npx folio -p browserName=chromium --reporter=junit,line --test-match=login.spec.ts
+PLAYWRIGHT_JUNIT_OUTPUT_NAME=junit.xml npx playwright test --reporter=junit,line
 ```
 
 ## Submitting results to Jira
@@ -33,7 +34,7 @@ For Xray specific questions, please contact [Xray's support team](https://jira.x
 
 ## References
 
-- [Playwrighttest](https://github.com/microsoft/playwright-test/blob/master/README.md)
+- [Playwrighttest](https://playwright.dev/docs/test-intro/)
 - [Playwright](https://playwright.dev/)
 - [How Xray processes NUnit XML reports](https://docs.getxray.app/display/XRAYCLOUD/Taking+advantage+of+NUnit+XML+reports)
 
