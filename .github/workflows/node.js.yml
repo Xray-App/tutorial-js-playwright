@@ -26,19 +26,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
-        npx playwright install
-        npm i -D @playwright/test --legacy-peer-deps
+        npm install
+        npx playwright test --browser=chromium --reporter=junit,line
     - run: |
         PLAYWRIGHT_JUNIT_OUTPUT_NAME=junit.xml npx playwright test --reporter=junit,line
-    - name: "Import results to Xray"
-      uses: mikepenz/xray-action@v1.1.0
-      with:
-         username: ${{ secrets.JIRA_USERNAME }}
-         password: ${{ secrets.JIRA_PASSWORD }}
-         xrayCloud: "true"
-         xrayBaseUrl: ${{ secrets.JIRA_BASEURL }}
-         testFormat: "junit"
-         testPaths: "**/junit.xml"
-         testPlanKey: "${{ secrets.TESTPLAN_KEY }}"
-         projectKey: "${{ secrets.PROJECT_KEY }}"
-         testEnvironments: "NODE_${{ matrix.node-version }}"
+    - name: Authenticate with Xray
+    - run: |
+        cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
+        echo token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.json" ${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/authenticate| tr -d '"') >> $GITHUB_ENV
+    - name: Import results to Xray (cloud) using multipart endpoint
+      run: |
+        curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer ${{ env.token }}"  --data @"junit.xml" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v2/import/execution/junit?projectKey=${{ secrets.JIRACLOUD_PROJECT_KEY }}&testPlanKey=${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}"
