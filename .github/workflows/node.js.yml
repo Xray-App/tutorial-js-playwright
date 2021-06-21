@@ -27,7 +27,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: |
         npm install
-        npx playwright test --browser=chromium --reporter=junit,line
     - run: |
         PLAYWRIGHT_JUNIT_OUTPUT_NAME=junit.xml npx playwright test --reporter=junit,line
     - name: Authenticate with Xray
