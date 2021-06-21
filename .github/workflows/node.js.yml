@@ -35,7 +35,7 @@ jobs:
       with:
          username: ${{ secrets.JIRA_USERNAME }}
          password: ${{ secrets.JIRA_PASSWORD }}
-         xrayCloud: "false"
+         xrayCloud: "true"
          xrayBaseUrl: ${{ secrets.JIRA_BASEURL }}
          testFormat: "junit"
          testPaths: "**/junit.xml"
