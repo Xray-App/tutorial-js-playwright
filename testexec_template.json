@@ -1,0 +1,15 @@
+{
+    "fields": {
+        "project": {
+            "key": "PROJECT_KEY"
+        },
+        "summary": "Test Execution for cucumber execution",
+        "issuetype": {
+            "name": "Test Execution"
+        },
+        "customfield_CF_TEST_ENVIRONMENT" : [
+            "TEST_ENVIRONMENT_NAME"
+        ],
+	"customfield_CF_TEST_PLAN" : [ "TESTPLAN_KEY" ]
+    }
+}
