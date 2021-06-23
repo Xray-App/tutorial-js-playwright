@@ -34,7 +34,7 @@ For Xray specific questions, please contact [Xray's support team](https://jira.x
 
 ## References
 
-- [Playwrighttest](https://playwright.dev/docs/test-intro/)
+- [Playwright test](https://playwright.dev/docs/test-intro/)
 - [Playwright](https://playwright.dev/)
 - [How Xray processes NUnit XML reports](https://docs.getxray.app/display/XRAYCLOUD/Taking+advantage+of+NUnit+XML+reports)
 
