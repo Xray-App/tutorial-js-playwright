@@ -1,5 +1,5 @@
 # tutorial-js-playwright-selenium
-[![build workflow](https://github.com/Xray-App/tutorial-js-playwright-selenium/actions/workflows/node.js.yml/badge.svg)](https://github.com/Xray-App/tutorial-js-playwright-selenium/actions/workflows/node.js.yml)
+[![build workflow](https://github.com/Xray-App/tutorial-js-playwright-selenium/actions/workflows/node.js.yml/badge.svg)](https://github.com/Xray-App/tutorial-js-playwright-selenium/actions/workflows/main-cloud.js.yml)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FXray-App%2Ftutorial-js-playwright-selenium.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FXray-App%2Ftutorial-js-playwright-selenium?ref=badge_shield)
 [![license](https://img.shields.io/badge/License-BSD%203--Clause-green.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Xray-App/community)
