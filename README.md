@@ -30,7 +30,7 @@ This can be achieved using [Xray Test Management](https://www.getxray.app/) as s
 ## Contact
 
 Any questions related with this code, please raise issues in this GitHub project. Feel free to contribute and submit PR's.
-For Xray specific questions, please contact [Xray's support team](https://jira.xpand-it.com/servicedesk/customer/portal/2).
+For Xray specific questions, please contact [Xray's support team](https://jira.getxray.app/servicedesk/customer/portal/2).
 
 ## References
 
