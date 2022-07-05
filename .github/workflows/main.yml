@@ -37,7 +37,7 @@ jobs:
          xrayCloud: "false"
          xrayBaseUrl: ${{ secrets.JIRA_BASEURL }}
          testFormat: "junit"
-         testPaths: "**/junit.xml"
+         testPaths: "**/xray-report.xml"
          testPlanKey: "${{ secrets.JIRA_TEST_PLAN_KEY }}"
          projectKey: "${{ secrets.JIRA_PROJECT_KEY }}"
          testEnvironments: "NODE_${{ matrix.node-version }}"
