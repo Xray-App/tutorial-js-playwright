@@ -5,12 +5,12 @@
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Xray-App/community)
 
 ## Overview
-Code that support the tutorial [Testing web applications using Playwright](https://docs.getxray.app/display/XRAYCLOUD/Testing+web+applications+using+Playwright) showcasing the integratoin between [Xray Test Management](https://www.getxray.app/) on Jira and NUnit.
+Code that supports the tutorial [Testing web applications using Playwright](https://docs.getxray.app/display/XRAYCLOUD/Testing+web+applications+using+Playwright) showcasing the integration between [Xray Test Management](https://www.getxray.app/) on Jira and Playwright, using JUnit XML reports.
 
-The test automation code implements a basic [Playwright test](https://playwright.dev/docs/test-intro/)
+The test automation code implements a basic [Playwright test](https://playwright.dev/docs/test-intro/).
 
 ## Prerequisites
-In order to run this tutorial you need to have Nodejs and install the playwrighttest runner.
+In order to run this tutorial you need to have Nodejs and install the playwright-test runner.
 ```
 npx playwright install
 npm i -D @playwright/test
@@ -36,7 +36,8 @@ For Xray specific questions, please contact [Xray's support team](https://jira.g
 
 - [Playwright test](https://playwright.dev/docs/test-intro/)
 - [Playwright](https://playwright.dev/)
-- [How Xray processes NUnit XML reports](https://docs.getxray.app/display/XRAYCLOUD/Taking+advantage+of+NUnit+XML+reports)
+- [How Xray processes JUnit XML reports](https://docs.getxray.app/display/XRAYCLOUD/Taking+advantage+of+JUnit+XML+reports)
+- [Using playwright-test junit reporter](https://playwright.dev/docs/test-reporters#junit-reporter)
 
 
 ## LICENSE
