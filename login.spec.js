@@ -35,6 +35,6 @@ test.describe("Login validations", () => {
         await page.screenshot({ path });
         testInfo.attachments.push({ name: 'screenshot.png', path, contentType: 'image/png' });
 
-        expect(name).toBe('Login failed. Invalid user name and password.');
+        expect(name).toBe('Login failed. Invalid user name and/or password.');
     });
 }) 
