@@ -1,5 +1,5 @@
 {
-    "endpoint" : "https://robotwebdemo.herokuapp.com/",
+    "endpoint" : "https://robotwebdemo.onrender.com/",
     "login_button" : "id=login_button",
     "password_field" :"input[id=\"password_field\"]",
     "username_field" : "input[id=\"username_field\"]"
