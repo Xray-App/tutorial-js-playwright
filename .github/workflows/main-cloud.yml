@@ -35,4 +35,4 @@ jobs:
         echo token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.json" ${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/authenticate| tr -d '"') >> $GITHUB_ENV
     - name: Import results to Xray (cloud)
       run: |
-        curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer ${{ env.token }}"  --data @"junit.xml" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v2/import/execution/junit?projectKey=${{ secrets.JIRACLOUD_PROJECT_KEY }}&testPlanKey=${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}"
+        curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer ${{ env.token }}"  --data @"xray-report.xml" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v2/import/execution/junit?projectKey=${{ secrets.JIRACLOUD_PROJECT_KEY }}&testPlanKey=${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}"
