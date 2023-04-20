@@ -10,9 +10,9 @@ test.describe("Login validations", () => {
         const name = await loginPage.getInnerText();
 
         //Adding Xray properties
-        testInfo.annotations.push({ type: 'test_key', description: 'XT-92' });
+        testInfo.annotations.push({ type: 'test_key', description: 'XT-307' });
         testInfo.annotations.push({ type: 'test_summary', description: 'Successful login.' });
-        testInfo.annotations.push({ type: 'requirements', description: 'XT-41' });
+        testInfo.annotations.push({ type: 'requirements', description: 'XT-10' });
         testInfo.annotations.push({ type: 'test_description', description: 'Validate that the login is successful.' });
 
         expect(name).toBe('Login succeeded. Now you can logout.');
@@ -25,9 +25,9 @@ test.describe("Login validations", () => {
         const name = await loginPage.getInnerText();
 
         //Adding Xray properties
-        testInfo.annotations.push({ type: 'test_key', description: 'XT-93' });
+        testInfo.annotations.push({ type: 'test_key', description: 'XT-335' });
         testInfo.annotations.push({ type: 'test_summary', description: 'Unsuccessful login.' });
-        testInfo.annotations.push({ type: 'requirements', description: 'XT-41' });
+        testInfo.annotations.push({ type: 'requirements', description: 'XT-10' });
         testInfo.annotations.push({ type: 'test_description', description: 'Validate that the login is unsuccessful.' });
 
         // Capture a screenshot and attach it.
