@@ -21,7 +21,7 @@ const config = {
   use: {
     screenshot: 'only-on-failure',
   },
-  reporter: [ ['junit', xrayOptions] ]
+  reporter: [ ['@xray-app/playwright-junit-reporter', xrayOptions] ]
 };
 
 module.exports = config;
