@@ -43,6 +43,14 @@ jobs:
     - name: Output results file
       run: |
         cat xray-report.xml
+    - uses: actions/upload-artifact@v3
+      if: always()
+      name: Store test results
+      with:
+        name: playwright-test-results
+        path: |
+          test-results/
+          xray-report.xml
     - name: "Import results to Xray"
       uses: mikepenz/xray-action@v2.4.5
       with:
