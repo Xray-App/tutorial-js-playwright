@@ -10,7 +10,7 @@ test.describe("Login validations", () => {
         const name = await loginPage.getInnerText();
 
         //Adding Xray properties
-        testInfo.annotations.push({ type: 'test_key', description: 'XT-92' });
+        testInfo.annotations.push({ type: 'test_key', description: 'XT-563' });
         testInfo.annotations.push({ type: 'test_summary', description: 'Successful login.' });
         testInfo.annotations.push({ type: 'requirements', description: 'XT-41' });
         testInfo.annotations.push({ type: 'test_description', description: 'Validate that the login is successful.' });
