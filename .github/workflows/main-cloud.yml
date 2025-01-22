@@ -29,7 +29,7 @@ jobs:
     - run: |
         PLAYWRIGHT_JUNIT_OUTPUT_NAME=xray-report.xml npx playwright test --reporter=junit,line
     - name: "Import results to Xray"
-      uses: mikepenz/xray-action@v2.4.5
+      uses: mikepenz/xray-action@v3.1.1
       with:
          username: ${{ secrets.XRAYCLOUD_CLIENT_ID }}
          password: ${{ secrets.XRAYCLOUD_CLIENT_SECRET }}
