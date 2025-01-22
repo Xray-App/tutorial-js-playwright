@@ -28,10 +28,22 @@ jobs:
         npm install
     - run: |
         PLAYWRIGHT_JUNIT_OUTPUT_NAME=xray-report.xml npx playwright test --reporter=junit,line
-    - name: Authenticate with Xray
-      run: |
-        cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
-        echo token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.json" ${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/authenticate| tr -d '"') >> $GITHUB_ENV
-    - name: Import results to Xray (cloud)
-      run: |
-        curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer ${{ env.token }}"  --data @"xray-report.xml" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v2/import/execution/junit?projectKey=${{ secrets.JIRACLOUD_PROJECT_KEY }}&testPlanKey=${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}"
+    - name: "Import results to Xray"
+      uses: mikepenz/xray-action@v2.4.5
+      with:
+         username: ${{ secrets.XRAYCLOUD_CLIENT_ID }}
+         password: ${{ secrets.XRAYCLOUD_CLIENT_SECRET }}
+         xrayCloud: "true"
+         xrayBaseUrl: ${{ secrets.XRAYCLOUD_BASE_URL }}
+         testFormat: "junit"
+         testPaths: "**/xray-report.xml"
+         testPlanKey: "${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}"
+         projectKey: "${{ secrets.JIRACLOUD_PROJECT_KEY }}"
+         testEnvironments: "NODE_${{ matrix.node-version }}"
+    #- name: Authenticate with Xray
+    #  run: |
+    #    cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
+    #    echo token=$(curl -H "Content-Type: application/json" -X POST --data @"cloud_auth.json" ${{ secrets.XRAYCLOUD_BASE_URL }}/api/v1/authenticate| tr -d '"') >> $GITHUB_ENV
+    #- name: Import results to Xray (cloud)
+    #  run: |
+    #    curl -H "Content-Type: text/xml" -X POST -H "Authorization: Bearer ${{ env.token }}"  --data @"xray-report.xml" "${{ secrets.XRAYCLOUD_BASE_URL }}/api/v2/import/execution/junit?projectKey=${{ secrets.JIRACLOUD_PROJECT_KEY }}&testPlanKey=${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}"
