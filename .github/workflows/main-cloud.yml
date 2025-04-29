@@ -18,7 +18,7 @@ jobs:
         node-version: [14.x, 15.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -26,7 +26,7 @@ jobs:
     - run: |
         npm install
     - run: |
-        PLAYWRIGHT_JUNIT_OUTPUT_NAME=xray-report.xml npx playwright test --reporter=junit,line
+        npx playwright test
     - uses: actions/upload-artifact@v4
       with:
         name: test-results-${{ matrix.node-version }}
