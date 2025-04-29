@@ -28,6 +28,10 @@ jobs:
         npm install
     - run: |
         PLAYWRIGHT_JUNIT_OUTPUT_NAME=xray-report.xml npx playwright test --reporter=junit,line
+    - uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: xray-report.xml
     - name: "Import results to Xray"
       uses: mikepenz/xray-action@v3.1.1
       with:
