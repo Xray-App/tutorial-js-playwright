@@ -1,7 +1,7 @@
 {
-  "name": "tutorial-js-playwright-selenium",
+  "name": "tutorial-js-playwright",
   "version": "1.0.0",
-  "description": "[![build workflow](https://github.com/Xray-App/tutorial-js-playwright-selenium/actions/workflows/node.js.yml/badge.svg)](https://github.com/Xray-App/tutorial-js-playwright-selenium/actions/workflows/node.js.yml) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FXray-App%2Ftutorial-js-playwright-selenium.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FXray-App%2Ftutorial-js-playwright-selenium?ref=badge_shield) [![license](https://img.shields.io/badge/License-BSD%203--Clause-green.svg)](https://opensource.org/licenses/BSD-3-Clause) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Xray-App/community)",
+  "description": "[![build workflow](https://github.com/Xray-App/tutorial-js-playwright/actions/workflows/node.js.yml/badge.svg)](https://github.com/Xray-App/tutorial-js-playwright/actions/workflows/node.js.yml) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FXray-App%2Ftutorial-js-playwright.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FXray-App%2Ftutorial-js-playwright-selenium?ref=badge_shield) [![license](https://img.shields.io/badge/License-BSD%203--Clause-green.svg)](https://opensource.org/licenses/BSD-3-Clause) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Xray-App/community)",
   "devDependencies": {
     "@playwright/test": "^1.32.2",
     "@xray-app/playwright-junit-reporter": "^0.1.2",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Xray-App/tutorial-js-playwright-selenium.git"
+    "url": "git+https://github.com/Xray-App/tutorial-js-playwright.git"
   },
   "author": "",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/Xray-App/tutorial-js-playwright-selenium/issues"
+    "url": "https://github.com/Xray-App/tutorial-js-playwright/issues"
   },
-  "homepage": "https://github.com/Xray-App/tutorial-js-playwright-selenium#readme",
+  "homepage": "https://github.com/Xray-App/tutorial-js-playwright#readme",
   "setupFilesAfterEnv": [
     "expect-playwright"
   ]
