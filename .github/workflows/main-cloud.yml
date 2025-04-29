@@ -32,6 +32,7 @@ jobs:
         name: test-results-${{ matrix.node-version }}
         path: xray-report.xml
     - name: "Import results to Xray"
+      id: xray
       uses: mikepenz/xray-action@v3.1.1
       with:
          username: ${{ secrets.XRAYCLOUD_CLIENT_ID }}
@@ -43,6 +44,9 @@ jobs:
          testPlanKey: "${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}"
          projectKey: "${{ secrets.JIRACLOUD_PROJECT_KEY }}"
          testEnvironments: "NODE_${{ matrix.node-version }}"
+    - run: |
+       echo "https://xraytutorials.atlassian.net/browse/"${{steps.xray.outputs.testExecKey}}
+    
     #- name: Authenticate with Xray
     #  run: |
     #    cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
