@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node 
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Node.js CI Cloud
 
 on:
   push:
@@ -50,8 +50,8 @@ jobs:
        echo "https://xraytutorials.atlassian.net/browse/"${{steps.xray.outputs.testExecKey}}
     - name: add link to Test Execution
       run: |
-        echo "| Test Execution | https://xraytutorials.atlassian.net/browse/"${{steps.xray.outputs.testExecKey}} | " >> $GITHUB_STEP_SUMMARY
-        echo "| link | [click here](https://xraytutorials.atlassian.net/browse/"${{steps.xray.outputs.testExecKey}}) | " >> $GITHUB_STEP_SUMMARY
+        echo "| Test Execution | https://xraytutorials.atlassian.net/browse/${{steps.xray.outputs.testExecKey}} | " >> $GITHUB_STEP_SUMMARY
+        echo "| link | [click here](https://xraytutorials.atlassian.net/browse/${{steps.xray.outputs.testExecKey}}) | " >> $GITHUB_STEP_SUMMARY
     #- name: Authenticate with Xray
     #  run: |
     #    cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
