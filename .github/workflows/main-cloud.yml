@@ -48,8 +48,8 @@ jobs:
          testEnvironments: "NODE_${{ matrix.node-version }}"
     - name: add link to Test Execution
       run: |
-        echo "| Test Execution for Node.js version | Link |"
-        echo "| --- | --- |"
+        echo "| Test Execution for Node.js version | Link |" >> $GITHUB_STEP_SUMMARY
+        echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
         echo "| ${{ matrix.node-version }} | [${{steps.xray.outputs.testExecKey}}](https://xraytutorials.atlassian.net/browse/${{steps.xray.outputs.testExecKey}}) | " >> $GITHUB_STEP_SUMMARY
     #- name: Authenticate with Xray
     #  run: |
