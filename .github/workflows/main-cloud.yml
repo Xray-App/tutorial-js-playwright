@@ -31,6 +31,8 @@ jobs:
       with:
         name: test-results-${{ matrix.node-version }}
         path: xray-report.xml
+    - run: |
+        npx playwright test
     - name: "Import results to Xray"
       id: xray
       uses: mikepenz/xray-action@v3.1.1
@@ -46,7 +48,10 @@ jobs:
          testEnvironments: "NODE_${{ matrix.node-version }}"
     - run: |
        echo "https://xraytutorials.atlassian.net/browse/"${{steps.xray.outputs.testExecKey}}
-    
+    - name: add link to Test Execution
+      run: |
+        echo "| Test Execution | https://xraytutorials.atlassian.net/browse/"${{steps.xray.outputs.testExecKey}} | " >> $GITHUB_STEP_SUMMARY
+        echo "| link | [click here](https://xraytutorials.atlassian.net/browse/"${{steps.xray.outputs.testExecKey}}) | " >> $GITHUB_STEP_SUMMARY
     #- name: Authenticate with Xray
     #  run: |
     #    cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
