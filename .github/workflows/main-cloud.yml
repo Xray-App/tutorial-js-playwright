@@ -43,14 +43,15 @@ jobs:
          xrayBaseUrl: ${{ secrets.XRAYCLOUD_BASE_URL }}
          testFormat: "junit"
          testPaths: "xray-report.xml"
-         testPlanKey: "${{ secrets.XRAYCLOUD_TEST_PLAN_KEY }}"
+         testPlanKey: "${{ vars.XRAYCLOUD_TEST_PLAN_KEY }}"
          projectKey: "${{ vars.JIRACLOUD_PROJECT_KEY }}"
          testEnvironments: "NODE_${{ matrix.node-version }}"
     - name: add link to Test Execution
       run: |
-        echo "| Test Execution for Node.js version | Link |" >> $GITHUB_STEP_SUMMARY
+        echo "| Node.js | Link |" >> $GITHUB_STEP_SUMMARY
         echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
-        echo "| ${{ matrix.node-version }} | [${{steps.xray.outputs.testExecKey}}](https://xraytutorials.atlassian.net/browse/${{steps.xray.outputs.testExecKey}}) | " >> $GITHUB_STEP_SUMMARY
+        echo "| ${{ matrix.node-version }} | Test Plan: [${{ vars.XRAYCLOUD_TEST_PLAN_KEY }}](https://xraytutorials.atlassian.net/browse/${{ vars.XRAYCLOUD_TEST_PLAN_KEY }}) | " >> $GITHUB_STEP_SUMMARY
+        echo "| ${{ matrix.node-version }} | Test Execution: [${{steps.xray.outputs.testExecKey}}](https://xraytutorials.atlassian.net/browse/${{steps.xray.outputs.testExecKey}}) | " >> $GITHUB_STEP_SUMMARY
     #- name: Authenticate with Xray
     #  run: |
     #    cat cloud_auth.json.sample  | sed s/CLIENT_ID/${{ secrets.XRAYCLOUD_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAYCLOUD_CLIENT_SECRET }}/g > cloud_auth.json
