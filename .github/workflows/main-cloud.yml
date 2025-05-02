@@ -50,7 +50,7 @@ jobs:
       run: |
         echo "| Node.js | Link |" >> $GITHUB_STEP_SUMMARY
         echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
-        echo "| ${{ matrix.node-version }} | Test Plan: [${{ vars.XRAYCLOUD_TEST_PLAN_KEY }}](https://xraytutorials.atlassian.net/browse/${{ vars.XRAYCLOUD_TEST_PLAN_KEY }}) | " >> $GITHUB_STEP_SUMMARY
+        echo "| - | Test Plan: [${{ vars.XRAYCLOUD_TEST_PLAN_KEY }}](https://xraytutorials.atlassian.net/browse/${{ vars.XRAYCLOUD_TEST_PLAN_KEY }}) | " >> $GITHUB_STEP_SUMMARY
         echo "| ${{ matrix.node-version }} | Test Execution: [${{steps.xray.outputs.testExecKey}}](https://xraytutorials.atlassian.net/browse/${{steps.xray.outputs.testExecKey}}) | " >> $GITHUB_STEP_SUMMARY
     #- name: Authenticate with Xray
     #  run: |
