@@ -24,7 +24,7 @@ PLAYWRIGHT_JUNIT_OUTPUT_NAME=junit.xml npx playwright test --reporter=junit,line
 
 ## Submitting results to Jira
 
-Results can be submitted to Jira so that they can be shared with the team and their impacts be easily analysed.
+Results can be submitted to Jira so that they can be shared with the team and their impacts be easily analysed. 
 This can be achieved using [Xray Test Management](https://www.getxray.app/) as shown in further detail in this [tutorial](https://docs.getxray.app/display/XRAYCLOUD/Testing+web+applications+using+Playwright).
 
 ## Contact
