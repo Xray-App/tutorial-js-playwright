@@ -7,6 +7,7 @@
 ## Overview
 Code that supports the tutorial [Testing web applications using Playwright](https://docs.getxray.app/display/XRAYCLOUD/Testing+web+applications+using+Playwright) showcasing the integration between [Xray Test Management](https://www.getxray.app/) on Jira and Playwright, using JUnit XML reports.
 
+
 The test automation code implements a basic [Playwright test](https://playwright.dev/docs/test-intro/).
 
 ## Prerequisites
