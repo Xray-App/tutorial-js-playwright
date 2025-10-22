@@ -11,7 +11,7 @@ Code that supports the tutorial [Testing web applications using Playwright](http
 The test automation code implements a basic [Playwright test](https://playwright.dev/docs/test-intro/).
 
 ## Prerequisites
-In order to run this tutorial you need to have Nodejs and install the playwright-test runner.
+In order to run this tutorial you need to have Nodejs and install the playwright-test runner. 
 ```
 npx playwright install
 npm i -D @playwright/test
