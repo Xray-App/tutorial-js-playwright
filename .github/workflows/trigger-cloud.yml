@@ -1,0 +1,59 @@
+name: run build upon trigger from Xray Cloud
+
+on:
+  workflow_dispatch:
+    inputs:
+      testPlanKey:
+        description: 'TestPlan key from Xray'
+        default: ''
+        required: true
+        type: string
+      projectKey:
+        description: 'Project key from Xray'
+        default: ''
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 15.x]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: |
+        npm install
+    - run: |
+        npx playwright test
+    - uses: actions/upload-artifact@v4
+      with:
+        name: test-results-${{ matrix.node-version }}
+        path: xray-report.xml
+    - run: |
+        npx playwright test
+    - name: "Import results to Xray"
+      id: xray
+      uses: mikepenz/xray-action@v3.1.1
+      with:
+         username: ${{ secrets.XRAYCLOUD_CLIENT_ID }}
+         password: ${{ secrets.XRAYCLOUD_CLIENT_SECRET }}
+         xrayCloud: "true"
+         xrayBaseUrl: ${{ secrets.XRAYCLOUD_BASE_URL }}
+         testFormat: "junit"
+         testPaths: "xray-report.xml"
+         testPlanKey: "${{ inputs.testPlanKey }}"
+         projectKey: "${{ inputs.projectKey }}"
+         testEnvironments: "NODE_${{ matrix.node-version }}"
+    - name: add link to Test Execution
+      run: |
+        echo "| Node.js | Link |" >> $GITHUB_STEP_SUMMARY
+        echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
+        echo "| - | Test Plan: [${{ vars.XRAYCLOUD_TEST_PLAN_KEY }}](https://xraytutorials.atlassian.net/browse/$${{ inputs.testPlanKey }}) | " >> $GITHUB_STEP_SUMMARY
+        echo "| ${{ matrix.node-version }} | Test Execution: [${{steps.xray.outputs.testExecKey}}](https://xraytutorials.atlassian.net/browse/${{steps.xray.outputs.testExecKey}}) | " >> $GITHUB_STEP_SUMMARY
